@@ -41,7 +41,9 @@ export class ApodPage {
         if (params['date']) {
           this.getApod(params['date']);
         } else {
-          this.getApod(new Date().toISOString().slice(0, 10));
+          var date = new Date;
+          date.setDate(date.getDate() - 1);
+          this.getApod(date.toISOString().slice(0, 10));
         }
       }
     );
@@ -65,7 +67,7 @@ export class ApodPage {
         this.apod = result;
 
         this.date = this.randomDate(
-          new Date(1995, 5, 16),
+          new Date(1996, 5, 16),
           new Date()
         );
 
